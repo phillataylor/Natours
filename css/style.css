@@ -39,4 +39,42 @@ body {
     background-size: cover; /* will always try and fit the element inside the box containing it */
     background-position: top; /* can affect what is cropped when resizing occurs; experiment with bottom, center */
     clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+    position: relative; /* anything inside is positioned relative to this - I think */
 }
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+.text-box {
+    position: absolute;
+    top: 40%; /* in relation to parent */
+    left: 50%; /* in relation to parent */
+    transform: translate(-50%,-50%); /* values are relative to the element, not the parent  in order to center it */
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+}
+
