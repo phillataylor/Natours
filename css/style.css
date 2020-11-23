@@ -6,3 +6,37 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/*
+Basic reset in next to declarations
+- these don't have to be as sophisticated as in earlier years since browsers are more consistent in their default element settings
+
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*border,padding not added to size of box model */
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height:1.7;
+    color: #777;
+    padding: 30px;
+}
+
+.header {
+    height: 95vh;
+    background-image: 
+        linear-gradient(
+            to right bottom,
+            rgba(128, 214, 113, 0.801), 
+            rgba(40, 180, 133, 0.801)), 
+            url(../img/hero.jpg);
+    background-size: cover; /* will always try and fit the element inside the box containing it */
+    background-position: top; /* can affect what is cropped when resizing occurs; experiment with bottom, center */
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+}
