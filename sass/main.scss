@@ -1,0 +1,229 @@
+
+/*
+Basic reset in next to declarations
+- these don't have to be as sophisticated as in earlier years since browsers are more consistent in their default element settings
+
+*/
+
+
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-grey-dark: #777;
+$color-white: #fff;
+$color-black: #000;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*border,padding not added to size of box model */
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    /* font-size: 16px; */
+    line-height:1.7;
+    color: $color-grey-dark;
+    padding: 30px;
+}
+
+.header {
+    height: 95vh;
+    background-image: 
+        linear-gradient(
+            to right bottom,
+            rgba($color-primary-light, 0.801), 
+            rgba($color-primary-dark, 0.801)), 
+            url(../img/hero.jpg);
+    background-size: cover; /* will always try and fit the element inside the box containing it */
+    background-position: top; /* can affect what is cropped when resizing occurs; experiment with bottom, center */
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+    position: relative; /* anything inside is positioned relative to this - I think */
+
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+    
+    &__logo {
+        height: 3.5rem;
+    }
+
+    &__text-box {
+        position: absolute;
+        top: 40%; /* in relation to parent */
+        left: 50%; /* in relation to parent */
+        transform: translate(-50%,-50%); /* values are relative to the element, not the parent  in order to center it */
+        text-align: center;
+    }
+
+}
+
+
+
+.logo:hover {
+    /* animation: moveInRight 1s ease-out; */
+}
+
+
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+
+    /* use this in case you have a little shake at end of the animation of an internal element */
+    backface-visibility: hidden; 
+    margin-bottom: 60px;
+
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+    
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+    
+        /* 
+        animation-delay: 3s;
+        animation-iteration-count: 3;
+         */
+    }
+    
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+    
+        /* short-hand version of animation */
+        animation: moveInRight 1s ease-out;
+    
+    }
+}
+
+
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    80% {
+        transform: translateX(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+
+    80% {
+        transform: translateX(-1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn {
+    &:link, 
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block; /* do this when giving padding/margin to elements so no overlap*/
+        border-radius: 10rem;
+        transition: all .2s; /* Transition property must be on initial state */
+        position: relative;
+        font-size: 1.6rem;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba($color-black,.2);
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+    
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+    }
+    
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+    
+    &::after {
+        /* Lesson 10 */
+        /* for an ::after pseudo element to appear, we have to specify content and display property */
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
+    
+    &--animated {
+        animation: moveInBottom .5s ease-out .75s;
+        /* animation-delay: .75s; */
+    
+        /* This applies initial state (0% opacity) of the defined keyframes of animation right away */
+        animation-fill-mode: backwards;
+    }
+
+}
+
+
+
+
+
+
+.thisisus {
+    color: black;
+}
