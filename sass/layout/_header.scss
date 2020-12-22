@@ -8,6 +8,7 @@
             url(../img/hero.jpg);
     background-size: cover; /* will always try and fit the element inside the box containing it */
     background-position: top; /* can affect what is cropped when resizing occurs; experiment with bottom, center */
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
     position: relative; /* anything inside is positioned relative to this - I think */
 

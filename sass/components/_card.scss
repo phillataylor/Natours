@@ -1,12 +1,14 @@
 .card {
+
+    // FUNCTIONALITY
     perspective: 150rem;
     -moz-perspective: 150rem; //to work in Firefox
     position: relative;
-    height: 50rem;
+    height: 52rem;
 
     &__side{
-        color: #fff;
-        font-size: 2rem;
+        // color: #fff;
+        // font-size: 2rem;
         height: 100%;
         transition: all .8s ease;
         position: absolute;
@@ -14,6 +16,8 @@
         left: 0;
         width: 100%;
         backface-visibility: hidden;
+        border-radius: 3px;
+        overflow: hidden;
         box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
 
         &--front {
@@ -32,11 +36,75 @@
     
     //.card:hover .card__side { effect takes place when hover the main card
     &:hover &__side--front {
-        transform: rotateY(180deg);
+        transform: rotateY(-180deg);
     }
 
     &:hover &__side--back {
         transform: rotateY(0);
     }
+
+    // FRONT SIDE STYLING
+    &__picture {
+        // we want this for all the images;
+        background-size: cover; 
+        height: 23rem;
+        background-blend-mode: screen;//no ie or edge support
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); //still new property; not supported by all
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+        &--1 {
+            background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../img/nat-5.jpg);
+        }
+
+        &--2 {
+            background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../img/nat-5.jpg);
+        }
+
+        &--3 {
+            background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../img/nat-5.jpg);
+        }
+    }
+
+    &__heading {
+        font-size: 2.8rem;
+        font-weight: 300;
+        color: $color-white;
+        text-transform: uppercase;
+        text-align: right;
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        width: 75%
+    }
+
+    &__heading-span {
+        padding: 1rem 1.5rem;
+        -webkit-box-decoration-break: clone; // -webkit- for Chrome support
+
+        &--1 {
+            background-image: linear-gradient(to right bottom, rgba($color-secondary-light, .85), rgba($color-secondary-dark, .85));
+        }
+    }
+
+    &__details {
+        padding: 3rem;
+
+        ul {
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+
+            li {
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid $color-grey-light-2;
+                }
+            }
+        }
+    }
+
 }
 
