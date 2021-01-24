@@ -2,6 +2,10 @@
     background-color: $color-grey-light-1;
     padding: 25rem 0;
     margin-top: -25vh; // move into the diagonal header space
+    
+    @include respond(tab-port) {
+        padding: 50rem 0 20rem 0; // *** my results are different than his. He had to reduce. I had to increase
+    }
 }
 
 .section-features {
@@ -15,6 +19,10 @@
     background-size: cover;
     transform: skewY(-7deg);
     margin-top: -10rem;
+
+    @include respond(tab-port) {
+        padding: 10rem 0; 
+    }
     
     //direct child selector to select the direct child (the .row) below the .section-features
     & > * {
@@ -26,16 +34,28 @@
     background-color: $color-grey-light-1;
     padding: 25rem 0 15rem 0;
     margin-top: -10rem;
+
+    @include respond(tab-port) {
+        padding: 20rem 0 10rem 0; 
+    }
 }
 
 .section-stories {
     position: relative;
     padding: 15rem 0;
+    
+    @include respond(tab-port) {
+        padding: 10rem 0 0 0; 
+    }
 }
 
 .section-book {
     padding: 15rem 0;
     background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+
+    @include respond(tab-port) {
+        padding: 10rem 0 ; 
+    }
 }
 
 .book {
