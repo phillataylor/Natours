@@ -5,12 +5,26 @@
             to right bottom,
             rgba($color-primary-light, 0.801), 
             rgba($color-primary-dark, 0.801)), 
-            url(../img/hero.jpg);
+            url(../img/hero-small.jpg); // changed from hero.jpg to hero-small.jpg with addition of media query below
     background-size: cover; /* will always try and fit the element inside the box containing it */
     background-position: top; /* can affect what is cropped when resizing occurs; experiment with bottom, center */
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
     position: relative; /* anything inside is positioned relative to this - I think */
+
+
+    @media(min-resolution: 192dpi) and (min-width: 37.5em), //600px
+            (-webkit-min-device-pixel-ratio:2) and (min-width: 37.5em), //safari doesn't support first line
+            (min-width: 125em) {  // 2000px
+        background-image: 
+        linear-gradient(
+            to right bottom,
+            rgba($color-secondary-light, 0.801), 
+            rgba($color-secondary-dark, 0.801)), 
+            url(../img/hero.jpg);
+    }
+
+
 
     @include respond(tab-port) {
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
