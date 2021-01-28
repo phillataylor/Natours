@@ -13,9 +13,9 @@
     position: relative; /* anything inside is positioned relative to this - I think */
 
 
-    @media(min-resolution: 192dpi) and (min-width: 37.5em), //600px
-            (-webkit-min-device-pixel-ratio:2) and (min-width: 37.5em), //safari doesn't support first line
-            (min-width: 125em) {  // 2000px
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em), //600px
+        only screen and (-webkit-min-device-pixel-ratio:2) and (min-width: 37.5em), //safari doesn't support first line
+        only screen and (min-width: 125em) {  // 2000px
         background-image: 
         linear-gradient(
             to right bottom,
